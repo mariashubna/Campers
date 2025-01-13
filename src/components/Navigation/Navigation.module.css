@@ -1,0 +1,29 @@
+.header {
+  border-bottom: 1px solid var(--badges);
+  padding: 24px 64px;
+  background: var(--inputs);
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 15px;
+}
+.header nav {
+  width: calc(100% - 136px);
+  font-size: 28px;
+  font-weight: 600;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--main);
+}
+.active {
+  color: var(--button-nav-hover);
+}
