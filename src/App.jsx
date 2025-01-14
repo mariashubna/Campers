@@ -1,9 +1,11 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
 import { Layout } from "./components/Layout/Layout";
+import { useDispatch } from "react-redux";
+import { fetchCampers } from "./redux/operations";
 // import { fetchContacts } from "./redux/operations";
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
@@ -14,6 +16,12 @@ const Reviews = lazy(() => import("./components/Reviews/Reviews"));
 const CamperPage = lazy(() => import("./pages/CamperPage/CamperPage"));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCampers());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Routes>
