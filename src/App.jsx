@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import { Layout } from "./components/Layout/Layout";
+// import { fetchContacts } from "./redux/operations";
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
