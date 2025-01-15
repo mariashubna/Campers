@@ -8,17 +8,19 @@ const Navigation = () => {
   };
   return (
     <header className={css.header}>
-      <Link className={css.logo} to="/">
-        <img src={logo} width="136" height="15" />
-      </Link>
-      <nav>
-        <NavLink className={getActiveClass} to="/">
-          Home
-        </NavLink>
-        <NavLink className={getActiveClass} to="/catalog">
-          Catalog
-        </NavLink>
-      </nav>
+      <div className={`container ${css.wrap} `}>
+        <Link className={css.logo} to="/">
+          <img src={logo} width="136" height="15" />
+        </Link>
+        <nav>
+          <NavLink className={getActiveClass} to="/">
+            Home
+          </NavLink>
+          <NavLink className={getActiveClass} to="/catalog">
+            Catalog
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 };

@@ -27,3 +27,6 @@
   text-align: center;
   color: var(--main);
 }
+.form_name::first-letter {
+  text-transform: uppercase;
+}

@@ -10,7 +10,7 @@ const Features = () => {
   const isLoading = useSelector(selectLoading);
 
   return (
-    <div className={css.features}>
+    <>
       {isLoading ? (
         <Loader />
       ) : (
@@ -21,7 +21,7 @@ const Features = () => {
       )}
 
       <BookForm />
-    </div>
+    </>
   );
 };
 export default Features;

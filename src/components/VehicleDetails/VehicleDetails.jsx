@@ -16,6 +16,11 @@ const VehicleDetails = () => {
     return `${matchValue} ${matchUnit}`;
   };
 
+  const formatCamelCase = (value) => {
+    if (!value) return "";
+    return value.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase();
+  };
+
   return (
     <>
       <h3 className={css.title}>Vehicle details</h3>
@@ -23,7 +28,7 @@ const VehicleDetails = () => {
       <ul className={css.list}>
         <li>
           <p>Form</p>
-          <p></p>
+          <p className={css.form_name}>{formatCamelCase(camper.form)}</p>
         </li>
         <li>
           <p>Length</p>

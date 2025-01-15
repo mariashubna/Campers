@@ -19,6 +19,10 @@ const CamperPage = () => {
     dispatch(getCamper(id));
   }, [dispatch, id]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   if (!camper) {
     return;
   }
@@ -29,31 +33,27 @@ const CamperPage = () => {
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <CamperDetail camper={camper} />
-          <section>
-            <div className="container">
-              <ul className={css.add_info_list}>
-                <li>
-                  <NavLink className={getActiveClass} to="features">
-                    Features
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className={getActiveClass} to="reviews">
-                    Reviews
-                  </NavLink>
-                </li>
-              </ul>
-              <hr className={css.line} />
-              <Outlet />
-            </div>
-          </section>
-        </>
-      )}
+      <CamperDetail camper={camper} />
+      <section>
+        <div className="container">
+          <ul className={css.add_info_list}>
+            <li>
+              <NavLink className={getActiveClass} to="features">
+                Features
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={getActiveClass} to="reviews">
+                Reviews
+              </NavLink>
+            </li>
+          </ul>
+          <hr className={css.line} />
+          <div className={css.features}>
+            <Outlet />
+          </div>
+        </div>
+      </section>
     </>
   );
 };

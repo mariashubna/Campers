@@ -1,7 +1,20 @@
+import { useSelector } from "react-redux";
 import sprite from "../../images/icons.svg";
 import css from "./CamperDetail.module.css";
+import { selectLoading } from "../../redux/selectors";
+import Loader from "../Loader/Loader";
 
 const CamperDetail = ({ camper }) => {
+  const isLoading = useSelector(selectLoading);
+
+  if (!camper) {
+    return;
+  }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <section className={css.camper}>
       <div className="container">

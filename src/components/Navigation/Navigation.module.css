@@ -1,11 +1,12 @@
 .header {
   border-bottom: 1px solid var(--badges);
-  padding: 24px 64px;
+  padding: 24px 0;
   background: var(--inputs);
+}
+
+.wrap {
   display: flex;
   align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
 }
 .logo {
   height: 15px;

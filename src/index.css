@@ -13,6 +13,10 @@ a {
 li {
   list-style: none;
 }
+
+button {
+  cursor: pointer;
+}
 :root {
   --main: #101828;
   --text: #475467;
@@ -28,8 +32,30 @@ li {
 }
 
 .container {
-  width: 1440px;
+  width: 1312px;
   padding-left: 64px;
   padding-right: 64px;
   margin: 0 auto;
+}
+
+.react-datepicker__input-container input {
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gray);
+  width: 100%;
+  max-width: 491px;
+  border-radius: 12px;
+  padding: 18px;
+  height: 24px;
+  background: var(--inputs);
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 14px;
 }
