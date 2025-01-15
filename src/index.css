@@ -10,6 +10,9 @@ p {
 a {
   text-decoration: none;
 }
+li {
+  list-style: none;
+}
 :root {
   --main: #101828;
   --text: #475467;
@@ -18,11 +21,9 @@ a {
   --badges: #f2f4f7;
   --gray: #6c717b;
   --gray-light: #dadde1;
-  --button-nav: #e44848;
-  --button-nav-hover: #d84343;
+  --button: #e44848;
+  --button-hover: #d84343;
   --rating: #ffc531;
-  --button: #3470ff;
-  --button-hover: #0b44cd;
   --font-family: "Inter", sans-serif;
 }
 

@@ -83,30 +83,15 @@
   max-width: 525px;
   margin-bottom: 24px;
 }
-.features_list {
-  display: flex;
-  flex-wrap: wrap;
-  width: 524px;
-  gap: 8px;
-  text-transform: capitalize;
-  margin-bottom: 24px;
-}
-.features {
-  border-radius: 100px;
-  padding: 12px 18px;
-  height: 24px;
-  background: var(--badges);
+
+.btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-}
-.btn {
   border-radius: 200px;
-  padding: 16px 40px;
   width: 166px;
   height: 56px;
-  background: var(--button-nav);
+  background: var(--button);
   border: none;
   font-family: var(--font-family);
   font-weight: 500;

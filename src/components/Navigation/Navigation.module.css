@@ -4,6 +4,8 @@
   background: var(--inputs);
   display: flex;
   align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 .logo {
   height: 15px;
@@ -25,5 +27,5 @@
   color: var(--main);
 }
 .active {
-  color: var(--button-nav-hover);
+  color: var(--button-hover);
 }

@@ -1,5 +1,11 @@
+import BookForm from "../BookForm/BookForm";
+
 const Reviews = () => {
-  return <p>Reviews</p>;
+  return (
+    <>
+      <BookForm />
+    </>
+  );
 };
 
 export default Reviews;

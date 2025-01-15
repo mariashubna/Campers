@@ -1,56 +1,49 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoading } from "../../redux/selectors";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import css from "./CamperPage.module.css";
-import { selectCampers, selectLoading } from "../../redux/selectors";
-import { useParams } from "react-router-dom";
-import sprite from "../../images/icons.svg";
+
 import Loader from "../../components/Loader/Loader";
+import CamperDetail from "../../components/CamperDetail/CamperDetail";
+import { useEffect } from "react";
+import { getCamper } from "../../redux/operations";
 
 const CamperPage = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+
   const isLoading = useSelector(selectLoading);
 
-  const campers = useSelector(selectCampers);
-  const camper = campers.find((camper) => camper.id === id);
+  useEffect(() => {
+    dispatch(getCamper(id));
+  }, [dispatch, id]);
 
-  if (!camper) {
-    return;
-  }
+  const getActiveClass = ({ isActive }) => {
+    return isActive ? `${css.link} ${css.active}` : css.link;
+  };
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <li className={css.camper}>
-          <h2>{camper.name}</h2>
-          <div className={css.info_wrap}>
-            <div className={css.rating_wrap}>
-              <svg className={css.star} width="16" height="16">
-                <use href={`${sprite}#icon-star`} />
-              </svg>
-              <p>
-                {camper.rating}({camper.reviews.length} Reviews)
-              </p>
-            </div>
-            <div className={css.location_wrap}>
-              <svg className={css.location} width="16" height="16">
-                <use href={`${sprite}#icon-map`} />
-              </svg>
-              <p>{camper.location}</p>
-            </div>
-            <p>€{camper.price},00</p>
-          </div>
-          <ul>
-            {camper.gallery.map((img, index) => (
-              <li key={index}>
-                <img src={img.thumb} alt={`Gallery ${index + 1}`} />
-              </li>
-            ))}
+      {isLoading ? <Loader /> : <CamperDetail />}
+      <section>
+        <div className="container">
+          <ul className={css.add_info_list}>
+            <li>
+              <NavLink className={getActiveClass} to="features">
+                Features
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={getActiveClass} to="reviews">
+                Reviews
+              </NavLink>
+            </li>
           </ul>
+          <hr className={css.line} />
 
-          <p className={css.description}>{camper.description}</p>
-        </li>
-      )}
+          <Outlet />
+        </div>
+      </section>
     </>
   );
 };

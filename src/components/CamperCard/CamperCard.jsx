@@ -1,28 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import sprite from "../../images/icons.svg";
 import css from "./CamperCard.module.css";
+import FeatureList from "../FeaturesList/FeaturesList";
 
 const CamperCard = ({ camper }) => {
   const location = useLocation();
 
-  const features = [
-    { icon: "icon-diagram", text: camper.transmission },
-    { icon: "icon-petrol", text: camper.engine },
-    { icon: "icon-cup", text: camper.kitchen ? "Kitchen" : null },
-    { icon: "icon-wind", text: camper.AC ? "AC" : null },
-    { icon: "icon-shower", text: camper.bathroom ? "Bathroom" : null },
-    { icon: "icon-radios", text: camper.radio ? "Radio" : null },
-    { icon: "icon-microwave", text: camper.microwave ? "Microwave" : null },
-    { icon: "icon-tv", text: camper.TV ? "TV" : null },
-    { icon: "icon-water", text: camper.water ? "Water" : null },
-    { icon: "icon-gas", text: camper.gas ? "Gas" : null },
-    {
-      icon: "icon-fridge",
-      text: camper.microwave ? "Refrigerator" : null,
-    },
-  ].filter((feature) => feature.text);
-
-  console.log(camper);
   return (
     <li className={css.camper}>
       <img
@@ -60,16 +43,7 @@ const CamperCard = ({ camper }) => {
           </div>
         </div>
         <p className={css.description}>{camper.description}</p>
-        <ul className={css.features_list}>
-          {features.map((feature, index) => (
-            <li key={index} className={css.features}>
-              <svg width="20" height="20">
-                <use href={`${sprite}#${feature.icon}`} />
-              </svg>
-              <span>{feature.text}</span>
-            </li>
-          ))}
-        </ul>
+        <FeatureList camper={camper} />
         <Link className={css.btn} to={`/catalog/${camper.id}`} state={location}>
           Show more
         </Link>
