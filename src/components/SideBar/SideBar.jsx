@@ -1,8 +1,9 @@
 import Location from "../Location/Location";
+import css from "./SideBar.module.css";
 
 const SideBar = () => {
   return (
-    <aside>
+    <aside className={css.aside}>
       <Location />
     </aside>
   );
