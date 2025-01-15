@@ -1,15 +1,7 @@
-import { useSelector } from "react-redux";
-import { selectSelectedCamper } from "../../redux/selectors";
 import sprite from "../../images/icons.svg";
 import css from "./CamperDetail.module.css";
 
-const CamperDetail = () => {
-  const camper = useSelector(selectSelectedCamper);
-
-  if (!camper) {
-    return;
-  }
-
+const CamperDetail = ({ camper }) => {
   return (
     <section className={css.camper}>
       <div className="container">

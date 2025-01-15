@@ -1,7 +1,7 @@
 import css from "./FeaturesList.module.css";
 import sprite from "../../images/icons.svg";
 
-const FeatureList = ({ camper }) => {
+const FeatureList = ({ camper, customClass }) => {
   const features = [
     { icon: "icon-diagram", text: camper.transmission },
     { icon: "icon-petrol", text: camper.engine },
@@ -20,13 +20,13 @@ const FeatureList = ({ camper }) => {
   ].filter((feature) => feature.text);
 
   return (
-    <ul className={css.features_list}>
+    <ul className={`${css.features_list} ${customClass || ""}`}>
       {features.map((feature, index) => (
         <li key={index} className={css.features}>
           <svg width="20" height="20">
             <use href={`${sprite}#${feature.icon}`} />
           </svg>
-          <span>{feature.text}</span>
+          <p className={css.name}>{feature.text}</p>
         </li>
       ))}
     </ul>
