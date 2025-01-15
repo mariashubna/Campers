@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectSelectedCamper } from "../../redux/selectors";
+import { selectSelectedCamper } from "../../redux/campers/selectors";
 import css from "./FeatureDetails.module.css";
 import FeatureList from "../FeaturesList/FeaturesList";
 

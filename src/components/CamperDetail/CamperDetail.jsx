@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import sprite from "../../images/icons.svg";
 import css from "./CamperDetail.module.css";
-import { selectLoading } from "../../redux/selectors";
+import { selectLoading } from "../../redux/campers/selectors";
 import Loader from "../Loader/Loader";
 
 const CamperDetail = ({ camper }) => {

@@ -16,8 +16,7 @@ const slice = createSlice({
     items: [],
     loading: false,
     error: null,
-    selected: [],
-    favorites: [],
+    selected: null,
   },
   extraReducers: (builder) => {
     builder
@@ -33,7 +32,6 @@ const slice = createSlice({
         state.loading = false;
         state.error = null;
         state.selected = action.payload;
-        console.log("Fetched camper by ID:", state.selected);
       })
       .addCase(getCamper.rejected, handleRejected);
   },

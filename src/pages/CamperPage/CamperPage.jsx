@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoading } from "../../redux/selectors";
+import {
+  selectLoading,
+  selectSelectedCamper,
+} from "../../redux/campers/selectors";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import css from "./CamperPage.module.css";
-import { selectSelectedCamper } from "../../redux/selectors";
 
 import Loader from "../../components/Loader/Loader";
 import CamperDetail from "../../components/CamperDetail/CamperDetail";
 import { useEffect } from "react";
-import { getCamper } from "../../redux/operations";
+import { getCamper } from "../../redux/campers/operations";
 
 const CamperPage = () => {
   const { id } = useParams();

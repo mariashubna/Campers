@@ -1,10 +1,10 @@
 import BookForm from "../BookForm/BookForm";
-import UsersReview from "../UsersReview/UsersReview";
+import UsersReviewList from "../UsersReviewList/UsersReviewList";
 
 const Reviews = () => {
   return (
     <>
-      <UsersReview />
+      <UsersReviewList />
       <BookForm />
     </>
   );

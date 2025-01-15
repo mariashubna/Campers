@@ -5,8 +5,7 @@ import "./App.css";
 
 import { Layout } from "./components/Layout/Layout";
 import { useDispatch } from "react-redux";
-import { fetchCampers } from "./redux/operations";
-// import { fetchContacts } from "./redux/operations";
+import { fetchCampers } from "./redux/campers/operations";
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
