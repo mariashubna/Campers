@@ -2,6 +2,8 @@
   border-bottom: 1px solid var(--badges);
   padding: 24px 0;
   background: var(--inputs);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .wrap {

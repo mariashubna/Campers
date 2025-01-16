@@ -1,0 +1,18 @@
+[
+  { "icon": "icon-diagram", "text": "Automatic" },
+  { "icon": "icon-diagram", "text": "Manual" },
+  { "icon": "icon-petrol", "text": "Petrol" },
+  { "icon": "icon-petrol", "text": "Diesel" },
+  { "icon": "icon-cup", "text": "Kitchen" },
+  { "icon": "icon-wind", "text": "AC" },
+  { "icon": "icon-shower", "text": "Bathroom" },
+  { "icon": "icon-radios", "text": "Radio" },
+  { "icon": "icon-microwave", "text": "Microwave" },
+  { "icon": "icon-tv", "text": "TV" },
+  { "icon": "icon-water", "text": "Water" },
+  { "icon": "icon-gas", "text": "Gas" },
+  {
+    "icon": "icon-fridge",
+    "text": "Refrigerator"
+  }
+]

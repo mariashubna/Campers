@@ -1,0 +1,5 @@
+[
+  { "icon": "icon-diagram", "text": "Automatic" },
+  { "icon": "icon-diagram", "text": "Manual" },
+  { "icon": "icon-petrol", "text": "Petrol" }
+]

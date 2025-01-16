@@ -6,6 +6,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ValidateSchema from "./Schema";
+import Button from "../Button/Button";
 
 const initialValues = {
   name: "",
@@ -90,10 +91,7 @@ const BookForm = () => {
               name="text"
               placeholder="Comment"
             />
-
-            <button className={css.btn} type="submit">
-              Add contact
-            </button>
+            <Button text="Add contact" />
           </Form>
         )}
       </Formik>
