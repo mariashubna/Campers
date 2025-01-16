@@ -1,10 +1,14 @@
 import sprite from "../../images/icons.svg";
-import css from "./FeaturesItem";
+import css from "./FeaturesItem.module.css";
 
-const FeaturesItem = ({ feature }) => {
+const FeaturesItem = ({ feature, customClass }) => {
   return (
     <>
-      <svg width="20" height="20">
+      <svg
+        className={customClass ? css[customClass] : ""}
+        width="20"
+        height="20"
+      >
         <use href={`${sprite}#${feature.icon}`} />
       </svg>
       <p className={css.name}>{feature.text}</p>

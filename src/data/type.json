@@ -1,5 +1,5 @@
 [
-  { "icon": "icon-diagram", "text": "Automatic" },
-  { "icon": "icon-diagram", "text": "Manual" },
-  { "icon": "icon-petrol", "text": "Petrol" }
+  { "icon": "icon-van", "text": "Van" },
+  { "icon": "icon-integrated", "text": "Fully Integrated" },
+  { "icon": "icon-alcove", "text": "Alcove", "query": "dss" }
 ]

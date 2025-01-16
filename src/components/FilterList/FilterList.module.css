@@ -2,6 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
-  max-height: 220px;
+  max-height: 240px;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
 }

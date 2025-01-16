@@ -1,0 +1,27 @@
+.btn input[type="radio"] {
+  display: none;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  width: 110px;
+  height: 96px;
+}
+
+.btn input[type="radio"]:checked + .span {
+  border: 1px solid var(--button);
+}
+
+.btn input[type="radio"]:checked + .span {
+  border: 1px solid var(--button);
+}

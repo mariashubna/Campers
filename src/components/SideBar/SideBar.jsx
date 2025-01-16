@@ -12,8 +12,12 @@ const SideBar = () => {
         <Location />
         <div className={css.filters}>
           <p className={css.title}>Filters</p>
-          <Filter title="Vehicle equipment" filterData={vehicleData} />
-          <Filter title="Vehicle type" filterData={typeData} />
+          <Filter
+            title="Vehicle equipment"
+            filterData={vehicleData}
+            type="checkbox"
+          />
+          <Filter title="Vehicle type" filterData={typeData} type="radio" />
         </div>
         <Button text=" Search" />
       </form>

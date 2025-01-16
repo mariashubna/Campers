@@ -5,26 +5,32 @@ const slice = createSlice({
   initialState: {
     params: {
       location: "",
-      form: "",
-      transmission: "",
-      engine: "",
-      kitchen: false,
-      AC: false,
-      bathroom: false,
-      radio: false,
-      microwave: false,
-      TV: false,
-      water: false,
-      gas: false,
-      refrigerator: false,
+      equipments: {
+        form: "",
+        transmission: "",
+        engine: "",
+        kitchen: false,
+        AC: false,
+        bathroom: false,
+        radio: false,
+        microwave: false,
+        TV: false,
+        water: false,
+        gas: false,
+        refrigerator: false,
+      },
+      type: "",
     },
   },
   reducers: {
     changeFilter: (state, action) => {
-      state.params = {
-        ...state.params,
-        ...action.payload,
-      };
+      const { category, name, value } = action.payload;
+
+      if (category === "type") {
+        state.params.type = value;
+      } else if (category === "equipment") {
+        state.params.equipments[name] = value;
+      }
     },
   },
 });
