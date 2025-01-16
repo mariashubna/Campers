@@ -30,3 +30,14 @@
   border: 1px solid var(--gray);
   cursor: default;
 }
+
+.btn input[type="radio"] {
+  display: none;
+}
+.btn input[type="radio"]:checked + .span {
+  border: 1px solid var(--button);
+}
+
+.btn input[type="radio"]:checked + .span {
+  border: 1px solid var(--button);
+}

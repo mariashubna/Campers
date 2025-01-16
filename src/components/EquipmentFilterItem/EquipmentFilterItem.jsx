@@ -4,33 +4,38 @@ import css from "./EquipmentFilterItem.module.css";
 const EquipmentFilterItem = ({ feature, customClass, onChange }) => {
   const handleChange = (e) => {
     const input = e.target;
-    console.log(input.name);
-    let name = input.name;
-    let value = input.checked;
 
-    if (input.name === "manual" || input.name === "automatic") {
-      value = input.checked ? input.name : "";
-      name = "transmission";
+    if (input.type === "radio") {
+      onChange(input.name, input.value);
     }
 
-    if (
-      input.name === "petrol" ||
-      input.name === "hybrid" ||
-      input.name === "diesel"
-    ) {
-      value = input.checked ? input.name : "";
-      name = "engine";
+    if (input.type === "checkbox") {
+      onChange(input.name, input.checked);
     }
-
-    console.log(name, value);
-
-    onChange("equipment", name, value);
   };
 
   return (
     <li className={css.features}>
       <label className={css.btn}>
-        <input type="checkbox" name={feature.query} onChange={handleChange} />
+        {feature.icon === "icon-diagram" && (
+          <input
+            type="radio"
+            name="transmission"
+            value={feature.query}
+            onChange={handleChange}
+          />
+        )}
+        {feature.icon === "icon-petrol" && (
+          <input
+            type="radio"
+            name="engine"
+            value={feature.query}
+            onChange={handleChange}
+          />
+        )}
+        {feature.icon !== "icon-diagram" && feature.icon !== "icon-petrol" && (
+          <input type="checkbox" name={feature.query} onChange={handleChange} />
+        )}
         <span className={css.span}>
           <FeaturesItem feature={feature} customClass={customClass} />
         </span>

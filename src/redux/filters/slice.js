@@ -1,37 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchFilteredCampers } from "../campers/operations";
+
+const initialState = {
+  location: "",
+  form: "",
+  transmission: "",
+  engine: "",
+  kitchen: false,
+  AC: false,
+  bathroom: false,
+  radio: false,
+  microwave: false,
+  TV: false,
+  water: false,
+  gas: false,
+  refrigerator: false,
+};
 
 const slice = createSlice({
   name: "filters",
-  initialState: {
-    params: {
-      location: "",
-      equipments: {
-        form: "",
-        transmission: "",
-        engine: "",
-        kitchen: false,
-        AC: false,
-        bathroom: false,
-        radio: false,
-        microwave: false,
-        TV: false,
-        water: false,
-        gas: false,
-        refrigerator: false,
-      },
-      type: "",
-    },
-  },
+  initialState,
   reducers: {
     changeFilter: (state, action) => {
-      const { category, name, value } = action.payload;
-
-      if (category === "type") {
-        state.params.type = value;
-      } else if (category === "equipment") {
-        state.params.equipments[name] = value;
-      }
+      const { name, value } = action.payload;
+      state[name] = value;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchFilteredCampers.fulfilled, () => {
+      return initialState;
+    });
   },
 });
 

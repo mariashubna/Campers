@@ -4,7 +4,7 @@ import css from "./TypeFilterItem.module.css";
 const TypeFilterItem = ({ feature, customClass, onChange }) => {
   const handleChange = (e) => {
     const input = e.target;
-    onChange("type", input.name, input.value);
+    onChange(input.name, input.value);
   };
 
   return (
@@ -12,7 +12,7 @@ const TypeFilterItem = ({ feature, customClass, onChange }) => {
       <label className={css.btn}>
         <input
           type="radio"
-          name="type"
+          name="form"
           value={feature.query}
           onChange={handleChange}
         />

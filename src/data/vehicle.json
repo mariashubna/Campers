@@ -7,55 +7,50 @@
   {
     "icon": "icon-diagram",
     "text": "Manual",
-    "query": "manual "
+    "query": "manual"
   },
   {
     "icon": "icon-petrol",
     "text": "Petrol",
-    "query": "petrol "
+    "query": "petrol"
   },
   {
     "icon": "icon-petrol",
     "text": "Hybrid",
-    "query": "hybrid "
+    "query": "hybrid"
   },
   {
     "icon": "icon-petrol",
     "text": "Diesel",
-    "query": "diesel "
+    "query": "diesel"
   },
   {
     "icon": "icon-cup",
     "text": "Kitchen",
-    "query": "kitchen",
-    "value": "true "
+    "query": "kitchen"
   },
-  { "icon": "icon-wind", "text": "AC", "query": "AC", "value": "true " },
+  { "icon": "icon-wind", "text": "AC", "query": "AC" },
   {
     "icon": "icon-shower",
     "text": "Bathroom",
-    "query": "bathroom",
-    "value": "true "
+    "query": "bathroom"
   },
   {
     "icon": "icon-radios",
     "text": "Radio",
-    "query": "radio",
-    "value": "true "
+    "query": "radio"
   },
   {
     "icon": "icon-microwave",
     "text": "Microwave",
-    "query": "microwave",
-    "value": "true "
+    "query": "microwave"
   },
-  { "icon": "icon-tv", "text": "TV", "query": "TV", "value": "true " },
-  { "icon": "icon-water", "text": "Water", "query": "water", "value": "true " },
-  { "icon": "icon-gas", "text": "Gas", "query": "gas", "value": "true " },
+  { "icon": "icon-tv", "text": "TV", "query": "TV" },
+  { "icon": "icon-water", "text": "Water", "query": "water" },
+  { "icon": "icon-gas", "text": "Gas", "query": "gas" },
   {
     "icon": "icon-fridge",
     "text": "Refrigerator",
-    "query": "refrigerator",
-    "value": "true "
+    "query": "refrigerator"
   }
 ]
