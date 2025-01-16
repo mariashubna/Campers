@@ -1,13 +1,11 @@
 import css from "./Location.module.css";
 import sprite from "../../images/icons.svg";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectCampers } from "../../redux/campers/selectors";
-import { changeFilter } from "../../redux/filters/slice";
 import { useState } from "react";
 
 const Location = () => {
   const campers = useSelector(selectCampers);
-  const dispatch = useDispatch();
 
   const cities = [...new Set(campers.map((camper) => camper.location))].map(
     (city) => {
@@ -26,16 +24,10 @@ const Location = () => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-    if (value === "") {
-      dispatch(changeFilter({ location: "" }));
-    } else {
-      setShowDropdown(value !== "");
-    }
   };
 
   const handleCitySelect = (city) => {
     setInputValue(city.formatted);
-    dispatch(changeFilter({ location: city.original }));
     setShowDropdown(false);
   };
 
