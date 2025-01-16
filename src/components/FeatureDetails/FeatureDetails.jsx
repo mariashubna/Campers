@@ -6,8 +6,6 @@ import FeatureList from "../FeaturesList/FeaturesList";
 const FeatureDetails = () => {
   const camper = useSelector(selectSelectedCamper);
 
-  console.log("camper", camper);
-
   return (
     <div>
       <FeatureList camper={camper} customClass={css.custom_features_list} />

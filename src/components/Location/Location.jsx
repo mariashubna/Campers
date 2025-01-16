@@ -4,6 +4,8 @@ import sprite from "../../images/icons.svg";
 const Location = ({ onChange }) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
+    // if (!/^[a-zA-Z]*$/.test(value)) {
+    // }
     onChange("location", value);
   };
 

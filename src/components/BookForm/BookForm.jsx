@@ -35,7 +35,6 @@ const BookForm = () => {
     const formattedDate = values.date
       ? values.date.toLocaleDateString("en-GB")
       : "";
-    console.log(formattedDate);
     notify({ formattedDate });
     actions.resetForm();
   };
