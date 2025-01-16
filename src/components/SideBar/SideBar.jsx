@@ -17,9 +17,29 @@ const SideBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target.elements;
+
+    const isFormEmpty =
+      !form.location.value &&
+      !Array.from(form).some(
+        (input) =>
+          (input.type === "checkbox" || input.type === "radio") && input.checked
+      );
+
+    if (isFormEmpty) {
+      alert("Please select at least one filter option.");
+      return;
+    }
 
     dispatch(fetchFilteredCampers());
+
+    Array.from(form).forEach((input) => {
+      if (input.type === "checkbox" || input.type === "radio") {
+        input.checked = false;
+      }
+    });
+
+    form.location.value = "";
   };
 
   return (

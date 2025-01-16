@@ -8,7 +8,7 @@ export const fetchCampers = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get("campers");
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -21,11 +21,8 @@ export const getCamper = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`campers/${id}`);
-
-      console.log("dataфф", response.data);
       return response.data;
     } catch (error) {
-      console.log("errrr");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -52,9 +49,6 @@ export const fetchFilteredCampers = createAsyncThunk(
       refrigerator,
     } = state.filters;
 
-    const states = thunkAPI.getState();
-    console.log("Current filters state: ", states.filters);
-
     const params = {};
 
     if (location) params.location = location;
@@ -70,8 +64,6 @@ export const fetchFilteredCampers = createAsyncThunk(
     if (water) params.water = water;
     if (gas) params.gas = gas;
     if (refrigerator) params.refrigerator = refrigerator;
-
-    console.log(params);
 
     try {
       const { data } = await axios.get("/campers", { params });
