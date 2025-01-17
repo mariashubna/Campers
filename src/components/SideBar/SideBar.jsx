@@ -35,10 +35,7 @@ const SideBar = () => {
       return;
     }
 
-    const activeFilters = Object.entries(filters).filter(([, value]) => value);
-    const params = Object.fromEntries(activeFilters);
-
-    dispatch(fetchCampers(params));
+    dispatch(fetchCampers(filters));
 
     Array.from(form).forEach((input) => {
       if (input.type === "checkbox" || input.type === "radio") {
