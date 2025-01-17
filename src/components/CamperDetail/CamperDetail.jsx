@@ -3,6 +3,7 @@ import sprite from "../../images/icons.svg";
 import css from "./CamperDetail.module.css";
 import { selectLoading } from "../../redux/campers/selectors";
 import Loader from "../Loader/Loader";
+import ImageCard from "../ImageCard/ImageCard";
 
 const CamperDetail = ({ camper }) => {
   const isLoading = useSelector(selectLoading);
@@ -39,13 +40,7 @@ const CamperDetail = ({ camper }) => {
         <ul className={css.gallery}>
           {camper.gallery.map((img, index) => (
             <li key={index}>
-              <img
-                className={css.gallery_img}
-                src={img.thumb}
-                alt={camper.name}
-                width="292px"
-                height="312px"
-              />
+              <ImageCard img={img} alt={camper.name} />
             </li>
           ))}
         </ul>

@@ -14,6 +14,7 @@ const SideBar = () => {
   const dispatch = useDispatch();
 
   const filters = useSelector(selectFilters);
+  console.log(filters);
 
   const handleFilterChange = (name, value) => {
     dispatch(changeFilter({ name, value }));

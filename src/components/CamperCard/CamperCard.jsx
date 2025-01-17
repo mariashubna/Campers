@@ -13,14 +13,10 @@ const CamperCard = ({ camper }) => {
   const favorites = useSelector(selectFavorite);
   const isFavorite = favorites.some((favorite) => favorite.id === camper.id);
 
-  const handleFavorite = (e) => {
-    const btn = e.target.closest("button");
-
-    if (btn.classList.contains("active")) {
-      btn.classList.remove("active");
+  const handleFavorite = () => {
+    if (isFavorite) {
       dispatch(removeFavorite(camper));
     } else {
-      btn.classList.add("active");
       dispatch(addFavorite(camper));
     }
   };
