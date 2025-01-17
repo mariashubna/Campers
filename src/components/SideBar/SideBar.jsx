@@ -8,12 +8,12 @@ import vehicleData from "../../data/vehicle.json";
 import typeData from "../../data/type.json";
 import Button from "../Button/Button";
 import { selectFilters } from "../../redux/filters/selectors";
+import { changePage, cleanItems } from "../../redux/campers/slice";
 
 const SideBar = () => {
   const dispatch = useDispatch();
 
   const filters = useSelector(selectFilters);
-  console.log(filters);
 
   const handleFilterChange = (name, value) => {
     dispatch(changeFilter({ name, value }));
@@ -22,6 +22,10 @@ const SideBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target.elements;
+
+    localStorage.removeItem("filters");
+
+    localStorage.setItem("filters", JSON.stringify(filters));
 
     const isFormEmpty =
       !form.location.value &&
@@ -34,6 +38,8 @@ const SideBar = () => {
       alert("Please select at least one filter option.");
       return;
     }
+    dispatch(changePage(1));
+    dispatch(cleanItems());
 
     dispatch(fetchCampers(filters));
 
@@ -65,7 +71,7 @@ const SideBar = () => {
             onChange={handleFilterChange}
           />
         </div>
-        <Button text=" Search" />
+        <Button text="Search" />
       </form>
     </aside>
   );

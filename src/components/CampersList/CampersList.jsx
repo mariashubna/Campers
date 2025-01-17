@@ -1,12 +1,30 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CamperCard from "../CamperCard/CamperCard";
-import { selectCampers } from "../../redux/campers/selectors";
+import {
+  selectCampers,
+  selectPage,
+  selectTotal,
+} from "../../redux/campers/selectors";
 import css from "./CampersList.module.css";
+import { changePage } from "../../redux/campers/slice";
+import { fetchCampers } from "../../redux/campers/operations";
 
 const CampersList = () => {
   const campers = useSelector(selectCampers);
+  let page = useSelector(selectPage);
+  const total = useSelector(selectTotal);
 
-  const handleClick = () => {};
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    const filter = JSON.parse(localStorage.getItem("filters"));
+    console.log(filter);
+    const nextPage = page + 1;
+    dispatch(changePage(nextPage));
+    dispatch(fetchCampers(filter));
+  };
+
+  const isMorePages = total && page * 10 < total;
 
   return (
     <div className={css.wrap}>
@@ -15,9 +33,11 @@ const CampersList = () => {
           <CamperCard key={camper.id} camper={camper} />
         ))}
       </ul>
-      <button className={css.btn} type="button" onClick={handleClick}>
-        Load more
-      </button>
+      {isMorePages && (
+        <button className={css.btn} type="button" onClick={handleClick}>
+          Load more
+        </button>
+      )}
     </div>
   );
 };

@@ -15,17 +15,33 @@ const slice = createSlice({
   initialState: {
     items: [],
     page: 1,
+    total: null,
     loading: false,
     error: null,
     selected: null,
+  },
+  reducers: {
+    changePage: (state, action) => {
+      state.page = action.payload;
+    },
+    cleanItems: (state) => {
+      state.items = [];
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, handlePending)
       .addCase(fetchCampers.fulfilled, (state, action) => {
+        console.log(action);
         state.loading = false;
         state.error = null;
-        state.items = action.payload.items;
+        const uniqueItems = action.payload.items.filter(
+          (newItem) =>
+            !state.items.some((existingItem) => existingItem.id === newItem.id)
+        );
+
+        state.items = [...state.items, ...uniqueItems];
+        state.total = action.payload.total;
       })
       .addCase(fetchCampers.rejected, handleRejected)
       .addCase(getCamper.pending, handlePending)
@@ -38,4 +54,5 @@ const slice = createSlice({
   },
 });
 
+export const { changePage, cleanItems } = slice.actions;
 export default slice.reducer;

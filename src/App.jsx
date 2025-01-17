@@ -18,6 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    localStorage.removeItem("filters");
     dispatch(fetchCampers());
   }, [dispatch]);
 
