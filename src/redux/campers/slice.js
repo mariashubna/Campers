@@ -32,7 +32,6 @@ const slice = createSlice({
     builder
       .addCase(fetchCampers.pending, handlePending)
       .addCase(fetchCampers.fulfilled, (state, action) => {
-        console.log(action);
         state.loading = false;
         state.error = null;
         const uniqueItems = action.payload.items.filter(

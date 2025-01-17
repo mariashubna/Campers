@@ -1,1 +1,1 @@
-export const selectFilters = (state) => state.filters.initialState;
+export const selectFilters = (state) => state.filters.favorites;
