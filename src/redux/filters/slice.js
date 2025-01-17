@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchFilteredCampers } from "../campers/operations";
+import { fetchCampers } from "../campers/operations";
 
 const initialState = {
   location: "",
@@ -27,7 +27,7 @@ const slice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchFilteredCampers.fulfilled, () => {
+    builder.addCase(fetchCampers.fulfilled, () => {
       return initialState;
     });
   },

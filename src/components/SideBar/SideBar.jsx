@@ -1,15 +1,19 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "../../redux/filters/slice";
-import { fetchFilteredCampers } from "../../redux/campers/operations";
+import { fetchCampers } from "../../redux/campers/operations";
 import Filter from "../Filter/Filter";
 import Location from "../Location/Location";
 import css from "./SideBar.module.css";
 import vehicleData from "../../data/vehicle.json";
 import typeData from "../../data/type.json";
 import Button from "../Button/Button";
+import { selectFilters } from "../../redux/filters/selectors";
 
 const SideBar = () => {
   const dispatch = useDispatch();
+
+  const filters = useSelector(selectFilters);
+  console.log(filters);
 
   const handleFilterChange = (name, value) => {
     dispatch(changeFilter({ name, value }));
@@ -31,7 +35,10 @@ const SideBar = () => {
       return;
     }
 
-    dispatch(fetchFilteredCampers());
+    const activeFilters = Object.entries(filters).filter(([, value]) => value);
+    const params = Object.fromEntries(activeFilters);
+
+    dispatch(fetchCampers(params));
 
     Array.from(form).forEach((input) => {
       if (input.type === "checkbox" || input.type === "radio") {

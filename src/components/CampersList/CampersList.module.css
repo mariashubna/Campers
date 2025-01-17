@@ -1,5 +1,25 @@
+.wrap {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
 .list {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+.btn {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--main);
+  border: 1px solid var(--gray-light);
+  border-radius: 200px;
+  padding: 16px 32px;
+  width: 145px;
+  height: 56px;
+  margin: 0 auto;
 }

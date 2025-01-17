@@ -5,12 +5,20 @@ import css from "./CampersList.module.css";
 
 const CampersList = () => {
   const campers = useSelector(selectCampers);
+
+  const handleClick = () => {};
+
   return (
-    <ul className={css.list}>
-      {campers.map((camper) => (
-        <CamperCard key={camper.id} camper={camper} />
-      ))}
-    </ul>
+    <div className={css.wrap}>
+      <ul className={css.list}>
+        {campers.map((camper) => (
+          <CamperCard key={camper.id} camper={camper} />
+        ))}
+      </ul>
+      <button className={css.btn} type="button" onClick={handleClick}>
+        Load more
+      </button>
+    </div>
   );
 };
 
