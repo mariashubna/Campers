@@ -16,7 +16,7 @@ const Navigation = () => {
     <header className={css.header}>
       <div className={`container ${css.wrap} `}>
         <Link className={css.logo} to="/">
-          <img src={logo} width="136" height="15" />
+          <img src={logo} width="136" height="15" alt="logo" />
         </Link>
         <nav>
           <NavLink className={getActiveClass} to="/">
