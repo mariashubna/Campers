@@ -8,11 +8,14 @@ import {
 import css from "./CampersList.module.css";
 import { changePage } from "../../redux/campers/slice";
 import { fetchCampers } from "../../redux/campers/operations";
+import { selectFavorite, selectIsOpen } from "../../redux/favorites/selectors";
 
 const CampersList = () => {
   const campers = useSelector(selectCampers);
   let page = useSelector(selectPage);
   const total = useSelector(selectTotal);
+  const isOpen = useSelector(selectIsOpen);
+  const favoriteCampers = useSelector(selectFavorite);
 
   const dispatch = useDispatch();
 
@@ -24,14 +27,19 @@ const CampersList = () => {
     dispatch(fetchCampers(filter));
   };
 
-  const isMorePages = total && page * 10 < total;
+  const isMorePages = !isOpen && total && page * 10 < total;
 
   return (
     <div className={css.wrap}>
       <ul className={css.list}>
-        {campers.map((camper) => (
-          <CamperCard key={camper.id} camper={camper} />
-        ))}
+        {!isOpen &&
+          campers.map((camper) => (
+            <CamperCard key={camper.id} camper={camper} />
+          ))}
+        {isOpen &&
+          favoriteCampers.map((camper) => (
+            <CamperCard key={camper.id} camper={camper} />
+          ))}
       </ul>
       {isMorePages && (
         <button className={css.btn} type="button" onClick={handleClick}>

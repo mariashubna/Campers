@@ -1,9 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import css from "./Navigation.module.css";
 import logo from "../../images/logo.svg";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const Navigation = () => {
+  const location = useLocation();
+
   const getActiveClass = ({ isActive }) => {
     return isActive ? `${css.link} ${css.active}` : css.link;
   };
@@ -21,7 +23,7 @@ const Navigation = () => {
             Catalog
           </NavLink>
         </nav>
-        <FavoriteButton />
+        {location.pathname === "/catalog" && <FavoriteButton />}
       </div>
     </header>
   );

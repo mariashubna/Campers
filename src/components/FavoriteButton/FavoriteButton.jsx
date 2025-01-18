@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import sprite from "../../images/icons.svg";
 import { selectIsOpen } from "../../redux/favorites/selectors";
-import { openCloseFavorite } from "../../redux/favorites/slice";
+import { closeFavorite, openFavorite } from "../../redux/favorites/slice";
 import css from "./FavoriteButton.module.css";
 
 const FavoriteButton = () => {
@@ -9,13 +9,14 @@ const FavoriteButton = () => {
   const isOpen = useSelector(selectIsOpen);
 
   const handleOpen = () => {
-    dispatch(openCloseFavorite());
+    isOpen && dispatch(closeFavorite());
+    !isOpen && dispatch(openFavorite());
   };
 
   return (
     <button
       type="button"
-      className={isOpen ? css.favorite_btn : css.btn}
+      className={isOpen ? `${css.favorite_btn} ${css.btn}` : css.btn}
       onClick={handleOpen}
     >
       <svg width="26" height="24">

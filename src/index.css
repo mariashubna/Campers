@@ -17,6 +17,7 @@ li {
 
 button {
   cursor: pointer;
+  padding: 0;
 }
 :root {
   --main: #101828;

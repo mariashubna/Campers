@@ -13,12 +13,15 @@ import typeData from "../../data/type.json";
 import Button from "../Button/Button";
 import { selectFilters, selectIsFiltered } from "../../redux/filters/selectors";
 import { changePage, cleanItems } from "../../redux/campers/slice";
+import { closeFavorite } from "../../redux/favorites/slice";
+import { selectIsOpen } from "../../redux/favorites/selectors";
 
 const SideBar = () => {
   const dispatch = useDispatch();
 
   const filters = useSelector(selectFilters);
   const isFiltered = useSelector(selectIsFiltered);
+  const isOpen = useSelector(selectIsOpen);
 
   const handleFilterChange = (name, value) => {
     dispatch(changeFilter({ name, value }));
@@ -27,6 +30,7 @@ const SideBar = () => {
   const handleReset = () => {
     dispatch(resetFilter());
     dispatch(cleanItems());
+    dispatch(closeFavorite());
     dispatch(fetchCampers());
   };
 
@@ -60,6 +64,7 @@ const SideBar = () => {
     }
     dispatch(changePage(1));
     dispatch(cleanItems());
+    dispatch(closeFavorite());
     dispatch(fetchCampers(filters));
     handleCleanFilters(e.target.elements);
     dispatch(changeIsFiltered());
@@ -89,7 +94,7 @@ const SideBar = () => {
             <Button text="Search" />
           </li>
 
-          {isFiltered && (
+          {isFiltered && !isOpen && (
             <li>
               <button
                 className={css.reset_btn}

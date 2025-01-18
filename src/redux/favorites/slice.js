@@ -15,11 +15,15 @@ const slice = createSlice({
         (favorite) => favorite.id !== action.payload.id
       );
     },
-    openCloseFavorite: (state) => {
-      state.isOpen = !state.isOpen;
+    openFavorite: (state) => {
+      state.isOpen = true;
+    },
+    closeFavorite: (state) => {
+      state.isOpen = false;
     },
   },
 });
 
-export const { addFavorite, removeFavorite, openCloseFavorite } = slice.actions;
+export const { addFavorite, removeFavorite, openFavorite, closeFavorite } =
+  slice.actions;
 export default slice.reducer;
