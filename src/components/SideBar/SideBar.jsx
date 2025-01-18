@@ -15,6 +15,7 @@ import { selectFilters, selectIsFiltered } from "../../redux/filters/selectors";
 import { changePage, cleanItems } from "../../redux/campers/slice";
 import { closeFavorite } from "../../redux/favorites/slice";
 import { selectIsOpen } from "../../redux/favorites/selectors";
+import toast, { Toaster } from "react-hot-toast";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,13 @@ const SideBar = () => {
   const filters = useSelector(selectFilters);
   const isFiltered = useSelector(selectIsFiltered);
   const isOpen = useSelector(selectIsOpen);
+
+  const notify = () => {
+    toast.error("Please select at least one filter option.", {
+      duration: 3000,
+      position: "top-left",
+    });
+  };
 
   const handleFilterChange = (name, value) => {
     dispatch(changeFilter({ name, value }));
@@ -59,7 +67,7 @@ const SideBar = () => {
       );
 
     if (isFormEmpty) {
-      alert("Please select at least one filter option.");
+      notify();
       return;
     }
     dispatch(changePage(1));
@@ -103,6 +111,7 @@ const SideBar = () => {
           )}
         </ul>
       </form>
+      <Toaster position="top-center" reverseOrder={false} />
     </aside>
   );
 };
