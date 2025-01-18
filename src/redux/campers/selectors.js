@@ -9,3 +9,5 @@ export const selectSelectedCamper = (state) => state.campers.selected;
 export const selectPage = (state) => state.campers.page;
 
 export const selectTotal = (state) => state.campers.total;
+
+export const selectLimit = (state) => state.campers.limit;

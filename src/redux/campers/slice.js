@@ -16,6 +16,7 @@ const slice = createSlice({
   initialState: {
     items: [],
     page: 1,
+    limit: 10,
     total: null,
     loading: false,
     error: null,

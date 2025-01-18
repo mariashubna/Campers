@@ -21,9 +21,13 @@ const slice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchCampers.fulfilled, (state) => {
-      state.items = {};
-    });
+    builder
+      .addCase(fetchCampers.fulfilled, (state) => {
+        state.items = {};
+      })
+      .addCase(fetchCampers.rejected, (state) => {
+        state.items = {};
+      });
   },
 });
 

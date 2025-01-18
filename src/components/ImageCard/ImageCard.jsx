@@ -1,6 +1,6 @@
 import css from "./ImageCard.module.css";
 
-const ImageCard = ({ img, alt }) => {
+const ImageCard = ({ img, alt, onClick }) => {
   return (
     <img
       className={css.gallery_img}
@@ -8,6 +8,7 @@ const ImageCard = ({ img, alt }) => {
       alt={alt}
       width="292px"
       height="312px"
+      onClick={() => onClick(img)}
     />
   );
 };

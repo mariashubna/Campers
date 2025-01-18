@@ -34,7 +34,12 @@ const EquipmentFilterItem = ({ feature, customClass, onChange }) => {
           />
         )}
         {feature.icon !== "icon-diagram" && feature.icon !== "icon-petrol" && (
-          <input type="checkbox" name={feature.query} onChange={handleChange} />
+          <input
+            className={css.checkebox}
+            type="checkbox"
+            name={feature.query}
+            onChange={handleChange}
+          />
         )}
         <span className={css.span}>
           <FeaturesItem feature={feature} customClass={customClass} />

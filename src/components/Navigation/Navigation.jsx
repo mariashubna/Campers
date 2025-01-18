@@ -2,9 +2,12 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import css from "./Navigation.module.css";
 import logo from "../../images/logo.svg";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import { selectFavorite } from "../../redux/favorites/selectors";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
   const location = useLocation();
+  const favorites = useSelector(selectFavorite);
 
   const getActiveClass = ({ isActive }) => {
     return isActive ? `${css.link} ${css.active}` : css.link;
@@ -23,7 +26,9 @@ const Navigation = () => {
             Catalog
           </NavLink>
         </nav>
-        {location.pathname === "/catalog" && <FavoriteButton />}
+        {location.pathname === "/catalog" && favorites.length > 0 && (
+          <FavoriteButton />
+        )}
       </div>
     </header>
   );

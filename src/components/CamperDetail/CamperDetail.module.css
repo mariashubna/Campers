@@ -45,20 +45,6 @@
   color: var(--main);
   margin-bottom: 28px;
 }
-.gallery {
-  display: flex;
-  gap: 48px;
-  max-width: 1312px;
-  margin-bottom: 28px;
-}
-.gallery li {
-  width: 292px;
-  height: 312px;
-  overflow: hidden;
-  border: 1px solid gray;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
 
 .description {
   font-family: var(--font-family);

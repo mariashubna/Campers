@@ -96,11 +96,7 @@ const SideBar = () => {
 
           {isFiltered && !isOpen && (
             <li>
-              <button
-                className={css.reset_btn}
-                type="button"
-                onClick={handleReset}
-              >
+              <button className="btn" type="button" onClick={handleReset}>
                 Reset
               </button>
             </li>

@@ -4,7 +4,7 @@ import sprite from "../../images/icons.svg";
 const Location = ({ onChange }) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
-    // if (!/^[a-zA-Z]*$/.test(value)) {
+    // if (!/^[a-zA-Z] *$/.test(value)) {
     // }
     onChange("location", value);
   };
@@ -14,11 +14,7 @@ const Location = ({ onChange }) => {
       <label className={css.label} htmlFor="location">
         Location
       </label>
-      <input
-        name="location"
-        placeholder="Kyiv, Ukraine"
-        onChange={handleInputChange}
-      />
+      <input name="location" placeholder="City" onChange={handleInputChange} />
       <svg className={css.location} width="20" height="20">
         <use href={`${sprite}#icon-map`} />
       </svg>

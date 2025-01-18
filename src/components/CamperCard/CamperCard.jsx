@@ -36,7 +36,7 @@ const CamperCard = ({ camper }) => {
             <p>€{camper.price},00</p>
             <button
               onClick={handleFavorite}
-              className={isFavorite ? "active" : ""}
+              className={isFavorite ? `${css.heart} ${css.active}` : css.heart}
             >
               <svg width="26" height="24">
                 <use href={`${sprite}#icon-heart`} />

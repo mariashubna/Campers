@@ -5,6 +5,7 @@
   z-index: -1;
   opacity: 0;
   display: block;
+  position: absolute;
   width: 0;
   height: 0;
 }
@@ -19,16 +20,10 @@
   border-radius: 12px;
   width: 110px;
   height: 96px;
+  transition: border 0.3s ease-out;
 }
 .btn input[type="checkbox"]:checked + span {
   border: 1px solid var(--button);
-}
-
-.checkbox-btn input[type="checkbox"]:disabled + span {
-  background: var(--badges);
-  color: var(--gray);
-  border: 1px solid var(--gray);
-  cursor: default;
 }
 
 .btn input[type="radio"] {
@@ -39,5 +34,13 @@
 }
 
 .btn input[type="radio"]:checked + .span {
+  border: 1px solid var(--button);
+}
+
+.span:hover {
+  border: 1px solid var(--button);
+}
+
+.span:focus-visible {
   border: 1px solid var(--button);
 }

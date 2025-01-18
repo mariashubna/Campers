@@ -1,6 +1,8 @@
-import css from "./Button.module.css";
-
-const Button = ({ text, type }) => {
-  return <button className={css.btn}>{text}</button>;
+const Button = ({ text }) => {
+  return (
+    <button className="btn" type="submit">
+      {text}
+    </button>
+  );
 };
 export default Button;

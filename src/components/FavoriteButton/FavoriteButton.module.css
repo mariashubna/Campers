@@ -1,7 +1,14 @@
 .btn {
   border: none;
   background-color: transparent;
+  height: 24px;
+  transition: transform 0.3s ease-out;
 }
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
 .favorite_btn {
   fill: var(--button);
 }

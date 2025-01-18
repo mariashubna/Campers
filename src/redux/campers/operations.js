@@ -8,7 +8,7 @@ export const fetchCampers = createAsyncThunk(
   async (param, thunkAPI) => {
     const state = thunkAPI.getState();
     const page = state.campers.page || 1;
-    const limit = 10;
+    const limit = state.campers.limit || 10;
 
     const params = { page, limit, ...param };
 

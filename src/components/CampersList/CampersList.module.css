@@ -22,7 +22,15 @@
   width: 145px;
   height: 56px;
   margin: 0 auto;
+  background-color: transparent;
+  transition: border 0.3s ease-out;
 }
+
+.btn:hover,
+.btn:focus {
+  border: 1px solid var(--button-hover);
+}
+
 .message {
   width: 888px;
   text-align: center;

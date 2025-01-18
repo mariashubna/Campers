@@ -14,7 +14,7 @@
   height: 15px;
 }
 .header nav {
-  width: calc(100% - 136px);
+  width: calc(100% - 136px - 24px);
   font-size: 28px;
   font-weight: 600;
   display: flex;
@@ -29,6 +29,7 @@
   text-align: center;
   color: var(--main);
 }
+
 .active {
   color: var(--button-hover);
 }

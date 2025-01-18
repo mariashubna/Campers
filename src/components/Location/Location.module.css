@@ -18,7 +18,7 @@
   line-height: 1.5;
   color: var(--gray);
 }
-input {
+.location_wrap input {
   width: 288px;
   padding: 18px 18px 18px 48px;
   border: 1px solid #ccc;

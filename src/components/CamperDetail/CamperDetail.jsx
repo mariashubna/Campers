@@ -3,7 +3,7 @@ import sprite from "../../images/icons.svg";
 import css from "./CamperDetail.module.css";
 import { selectLoading } from "../../redux/campers/selectors";
 import Loader from "../Loader/Loader";
-import ImageCard from "../ImageCard/ImageCard";
+import Gallery from "../Gallery/Gallery";
 
 const CamperDetail = ({ camper }) => {
   const isLoading = useSelector(selectLoading);
@@ -37,13 +37,8 @@ const CamperDetail = ({ camper }) => {
           </div>
         </div>
         <p className={css.price}>€{camper.price},00</p>
-        <ul className={css.gallery}>
-          {camper.gallery.map((img, index) => (
-            <li key={index}>
-              <ImageCard img={img} alt={camper.name} />
-            </li>
-          ))}
-        </ul>
+        <Gallery camper={camper} />
+
         <p className={css.description}>{camper.description}</p>
       </div>
     </section>

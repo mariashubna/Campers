@@ -16,6 +16,11 @@
   border-radius: 12px;
   width: 110px;
   height: 96px;
+  transition: border 0.3s ease-out;
+}
+
+.span:hover {
+  border: 1px solid var(--button);
 }
 
 .btn input[type="radio"]:checked + .span {
@@ -23,5 +28,9 @@
 }
 
 .btn input[type="radio"]:checked + .span {
+  border: 1px solid var(--button);
+}
+
+.input .span:focus {
   border: 1px solid var(--button);
 }

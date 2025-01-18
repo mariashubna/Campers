@@ -11,6 +11,7 @@ const TypeFilterItem = ({ feature, customClass, onChange }) => {
     <li className={css.features}>
       <label className={css.btn}>
         <input
+          className={css.input}
           type="radio"
           name="form"
           value={feature.query}

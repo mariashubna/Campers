@@ -62,7 +62,6 @@ const CamperPage = () => {
           </section>
         </>
       )}
-      {!isLoading && !camper && <p>Camper not found.</p>}
     </>
   );
 };
