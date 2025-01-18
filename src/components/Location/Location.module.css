@@ -29,3 +29,6 @@ svg.location {
   top: 50px;
   pointer-events: none;
 }
+
+.error_message {
+}
