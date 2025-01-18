@@ -23,3 +23,12 @@
   height: 56px;
   margin: 0 auto;
 }
+.message {
+  width: 888px;
+  text-align: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text);
+}
