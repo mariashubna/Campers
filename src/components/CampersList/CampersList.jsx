@@ -44,7 +44,7 @@ const CampersList = () => {
 
   return (
     <div className={css.wrap}>
-      {isListEmpty ? (
+      {isListEmpty && !isLoading ? (
         <>
           <p className={css.message}>
             Sorry, no results found. Do you want to go to the catalog?

@@ -13,7 +13,6 @@
   padding: 260px 64px 260px 0;
 }
 .title {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 48px;
   line-height: 0.67;
@@ -21,7 +20,6 @@
   margin-bottom: 16px;
 }
 .info {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33;
@@ -32,10 +30,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
   letter-spacing: -0.01em;
   color: var(--white);
   border-radius: 200px;
@@ -43,6 +37,7 @@
   height: 56px;
   background: var(--button);
   transition: background-color 0.3s ease-out;
+  text-align: center;
 }
 
 .btn:hover,

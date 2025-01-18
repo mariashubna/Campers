@@ -6,7 +6,6 @@
   height: 500px;
 }
 .title {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
@@ -14,10 +13,6 @@
   margin-bottom: 8px;
 }
 .text {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
   color: var(--gray);
   margin-bottom: 24px;
 }
@@ -33,10 +28,6 @@
   height: 24px;
   background: var(--inputs);
   border: none;
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
   color: var(--gray);
   margin-bottom: 14px;
 }
