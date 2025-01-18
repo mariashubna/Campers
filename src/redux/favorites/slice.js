@@ -4,6 +4,7 @@ const slice = createSlice({
   name: "favorites",
   initialState: {
     items: [],
+    isOpen: false,
   },
   reducers: {
     addFavorite: (state, action) => {
@@ -14,8 +15,11 @@ const slice = createSlice({
         (favorite) => favorite.id !== action.payload.id
       );
     },
+    openCloseFavorite: (state) => {
+      state.isOpen = !state.isOpen;
+    },
   },
 });
 
-export const { addFavorite, removeFavorite } = slice.actions;
+export const { addFavorite, removeFavorite, openCloseFavorite } = slice.actions;
 export default slice.reducer;

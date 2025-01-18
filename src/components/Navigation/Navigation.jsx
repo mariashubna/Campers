@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 import logo from "../../images/logo.svg";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const Navigation = () => {
   const getActiveClass = ({ isActive }) => {
@@ -20,6 +21,7 @@ const Navigation = () => {
             Catalog
           </NavLink>
         </nav>
+        <FavoriteButton />
       </div>
     </header>
   );

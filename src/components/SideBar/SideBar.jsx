@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilter } from "../../redux/filters/slice";
+import {
+  changeFilter,
+  changeIsFiltered,
+  resetFilter,
+} from "../../redux/filters/slice";
 import { fetchCampers } from "../../redux/campers/operations";
 import Filter from "../Filter/Filter";
 import Location from "../Location/Location";
@@ -7,17 +11,33 @@ import css from "./SideBar.module.css";
 import vehicleData from "../../data/vehicle.json";
 import typeData from "../../data/type.json";
 import Button from "../Button/Button";
-import { selectFilters } from "../../redux/filters/selectors";
+import { selectFilters, selectIsFiltered } from "../../redux/filters/selectors";
 import { changePage, cleanItems } from "../../redux/campers/slice";
 
 const SideBar = () => {
   const dispatch = useDispatch();
 
   const filters = useSelector(selectFilters);
-  console.log(filters);
+  const isFiltered = useSelector(selectIsFiltered);
 
   const handleFilterChange = (name, value) => {
     dispatch(changeFilter({ name, value }));
+  };
+
+  const handleReset = () => {
+    dispatch(resetFilter());
+    dispatch(cleanItems());
+    dispatch(fetchCampers());
+  };
+
+  const handleCleanFilters = (form) => {
+    Array.from(form).forEach((input) => {
+      if (input.type === "checkbox" || input.type === "radio") {
+        input.checked = false;
+      }
+    });
+
+    form.location.value = "";
   };
 
   const handleSubmit = (e) => {
@@ -25,7 +45,6 @@ const SideBar = () => {
     const form = e.target.elements;
 
     localStorage.removeItem("filters");
-
     localStorage.setItem("filters", JSON.stringify(filters));
 
     const isFormEmpty =
@@ -41,16 +60,9 @@ const SideBar = () => {
     }
     dispatch(changePage(1));
     dispatch(cleanItems());
-
     dispatch(fetchCampers(filters));
-
-    Array.from(form).forEach((input) => {
-      if (input.type === "checkbox" || input.type === "radio") {
-        input.checked = false;
-      }
-    });
-
-    form.location.value = "";
+    handleCleanFilters(e.target.elements);
+    dispatch(changeIsFiltered());
   };
 
   return (
@@ -72,7 +84,23 @@ const SideBar = () => {
             onChange={handleFilterChange}
           />
         </div>
-        <Button text="Search" />
+        <ul className={css.btn_list}>
+          <li>
+            <Button text="Search" />
+          </li>
+
+          {isFiltered && (
+            <li>
+              <button
+                className={css.reset_btn}
+                type="button"
+                onClick={handleReset}
+              >
+                Reset
+              </button>
+            </li>
+          )}
+        </ul>
       </form>
     </aside>
   );

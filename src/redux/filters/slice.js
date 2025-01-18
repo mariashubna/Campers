@@ -3,19 +3,29 @@ import { fetchCampers } from "../campers/operations";
 
 const slice = createSlice({
   name: "filters",
-  initialState: {},
+  initialState: {
+    items: {},
+    isFiltered: false,
+  },
   reducers: {
     changeFilter: (state, action) => {
       const { name, value } = action.payload;
-      state.initialState[name] = value;
+      state.items[name] = value;
+    },
+    changeIsFiltered: (state) => {
+      state.isFiltered = true;
+    },
+    resetFilter: (state) => {
+      state.items = {};
+      state.isFiltered = false;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCampers.fulfilled, (state) => {
-      state.initialState = {};
+      state.items = {};
     });
   },
 });
 
-export const { changeFilter } = slice.actions;
+export const { changeFilter, resetFilter, changeIsFiltered } = slice.actions;
 export default slice.reducer;
