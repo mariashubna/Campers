@@ -38,7 +38,7 @@ This is a camper rental application that allows users to browse various campers,
    ```
 4. Start the application:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## Project Structure
