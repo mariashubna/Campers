@@ -1,13 +1,27 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 16px 22px;
   max-height: 240px;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  justify-content: center;
 }
 
 .list::-webkit-scrollbar {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  .list {
+    justify-content: left;
+    max-height: unset;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list {
+    gap: 8px 12px;
+    max-height: 240px;
+    justify-content: unset;
+  }
 }

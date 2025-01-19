@@ -8,7 +8,7 @@
       rgba(0, 0, 0, 0.4) 0%,
       rgba(0, 0, 0, 0) 100%
     ),
-    url("../../images/home_page.jpg");
+    url("../../images/home_page_mobile.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -19,4 +19,21 @@
   padding-bottom: 200px;
   max-height: 100vh;
   overflow: hidden;
+  padding: 250px 0 400px 20px;
+}
+@media screen and (min-width: 768px) {
+  .wrap {
+    padding-left: 100px;
+    padding-top: 300px;
+    padding-bottom: 200px;
+    background: linear-gradient(
+        57deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url("../../images/home_page.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
 }

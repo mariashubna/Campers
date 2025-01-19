@@ -36,6 +36,14 @@
 }
 .features {
   display: flex;
+  flex-direction: column;
   gap: 40px;
   padding: 44px 0 80px;
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1440px) {
+  .features {
+    flex-direction: row;
+  }
 }

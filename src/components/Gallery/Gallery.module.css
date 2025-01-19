@@ -1,7 +1,9 @@
 .gallery {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 48px;
-  max-width: 1312px;
+  max-width: 300px;
   margin-bottom: 28px;
 }
 
@@ -16,8 +18,8 @@
 
 .lightbox_img {
   position: absolute;
-  height: 80vh;
-  max-width: 90vw;
+  height: auto;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -43,12 +45,12 @@
   transform: translateY(-50%);
   background: var(--button);
   color: var(--white);
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
   z-index: 1001;
   border-radius: 50px;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   transition: background-color 0.3s ease-out;
 }
 
@@ -58,7 +60,7 @@
 }
 
 .left {
-  left: 50px;
+  left: 20px;
 }
 
 .right {
@@ -73,4 +75,38 @@
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    flex-direction: row;
+    max-width: 700px;
+    align-items: unset;
+  }
+
+  .lightbox_img {
+    height: 80vh;
+    max-width: 90vw;
+  }
+
+  .left {
+    left: 50px;
+  }
+
+  .right {
+    right: 50px;
+  }
+  .gallery_btn {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .gallery {
+    max-width: 1312px;
+  }
+  .right {
+    right: 100px;
+  }
 }

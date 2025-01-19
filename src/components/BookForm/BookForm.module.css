@@ -1,8 +1,8 @@
 .wrap {
   border: 1px solid var(--gray-light);
   border-radius: 10px;
-  padding: 44px 57px;
-  width: 525px;
+  padding: 44px 12px;
+  width: 300px;
   height: 500px;
 }
 .title {
@@ -22,9 +22,9 @@
 }
 .input {
   width: 100%;
-  max-width: 491px;
+  max-width: 280px;
   border-radius: 12px;
-  padding: 18px;
+  padding: 10px;
   height: 24px;
   background: var(--inputs);
   border: none;
@@ -39,4 +39,21 @@
 .error {
   font-size: 10px;
   color: red;
+}
+@media screen and (min-width: 768px) {
+  .wrap {
+    width: 525px;
+    margin: 0 auto;
+  }
+  .input {
+    max-width: 491px;
+    padding: 18px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrap {
+    margin: 0;
+    padding: 44px 57px;
+    height: 500px;
+  }
 }

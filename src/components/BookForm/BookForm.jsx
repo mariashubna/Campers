@@ -23,7 +23,7 @@ const BookForm = () => {
 
   const notify = ({ formattedDate }) => {
     toast.success(
-      `Booking Successful! Your campervan has been successfully booked for ${formattedDate}. We look forward to seeing you soon!`,
+      `We have received your campervan booking request for ${formattedDate} and will contact you shortly!`,
       {
         duration: 5000,
         position: "top-right",

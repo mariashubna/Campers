@@ -5,23 +5,23 @@
       rgba(0, 0, 0, 0.4) 0%,
       rgba(0, 0, 0, 0) 100%
     ),
-    url("../../images/home_page.jpg");
+    url("../../images/home_page_mobile.jpg");
   max-width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 260px 64px 260px 0;
+  padding: 250px 0 400px;
 }
 .title {
   font-weight: 600;
-  font-size: 48px;
+  font-size: 28px;
   line-height: 0.67;
   color: var(--inputs);
   margin-bottom: 16px;
 }
 .info {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.33;
   color: var(--inputs);
   margin-bottom: 40px;
@@ -43,4 +43,27 @@
 .btn:hover,
 .btn:focus {
   background-color: var(--button-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    background: linear-gradient(
+        57deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url("../../images/home_page.jpg");
+    padding: 260px 64px 260px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .title {
+    font-size: 48px;
+  }
+  .info {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

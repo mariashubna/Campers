@@ -1,6 +1,6 @@
 .location_wrap {
   position: relative;
-  width: 360px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -15,7 +15,7 @@
   color: var(--gray);
 }
 .location_wrap input {
-  width: 288px;
+  width: 230px;
   padding: 18px 18px 18px 48px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -30,5 +30,13 @@ svg.location {
   pointer-events: none;
 }
 
-.error_message {
+@media screen and (min-width: 768px) {
+  .location_wrap {
+    width: 360px;
+  }
+  .location_wrap input {
+    width: 288px;
+  }
+}
+@media screen and (min-width: 1440px) {
 }

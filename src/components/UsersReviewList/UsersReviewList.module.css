@@ -1,6 +1,16 @@
 .list {
-  width: 631px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 44px;
+}
+@media screen and (min-width: 768px) {
+  .list {
+    width: 700px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list {
+    width: 631px;
+  }
 }

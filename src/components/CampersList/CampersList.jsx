@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CamperCard from "../CamperCard/CamperCard";
 import {
   selectCampers,
+  selectError,
   selectLimit,
   selectLoading,
   selectPage,
@@ -22,10 +23,12 @@ const CampersList = () => {
   const favoriteCampers = useSelector(selectFavorite);
   const isLoading = useSelector(selectLoading);
   const limit = useSelector(selectLimit);
+  const isError = useSelector(selectError);
 
   const dispatch = useDispatch();
 
   const handleLoader = () => {
+    if (isError) return;
     const filter = JSON.parse(localStorage.getItem("filters"));
     const nextPage = page + 1;
     dispatch(changePage(nextPage));

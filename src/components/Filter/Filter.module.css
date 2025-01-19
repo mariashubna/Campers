@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 24px;
 }
+
 .title {
   font-weight: 600;
   font-size: 20px;
@@ -12,4 +13,15 @@
 .line {
   stroke-width: 1px;
   stroke: var(--gray-light);
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .wrap {
+    width: unset;
+  }
 }

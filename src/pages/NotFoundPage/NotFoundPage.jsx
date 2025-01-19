@@ -12,7 +12,7 @@ const NotFoundPage = () => {
           been moved.
         </p>
         <Link className={style.btn} to="/">
-          Go back to the Homepage
+          Go to Home
         </Link>
       </div>
     </section>
