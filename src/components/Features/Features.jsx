@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import BookForm from "../BookForm/BookForm";
 import FeatureDetails from "../FeatureDetails/FeatureDetails";
 import { selectLoading } from "../../redux/campers/selectors";
 import Loader from "../Loader/Loader";
@@ -19,8 +18,6 @@ const Features = () => {
           <VehicleDetails />
         </div>
       )}
-
-      <BookForm />
     </>
   );
 };

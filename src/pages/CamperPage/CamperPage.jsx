@@ -4,13 +4,16 @@ import {
   selectLoading,
   selectSelectedCamper,
 } from "../../redux/campers/selectors";
-import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import css from "./CamperPage.module.css";
 
 import Loader from "../../components/Loader/Loader";
 import CamperDetail from "../../components/CamperDetail/CamperDetail";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCamper } from "../../redux/campers/operations";
+import Features from "../../components/Features/Features";
+import Reviews from "../../components/Reviews/Reviews";
+import BookForm from "../../components/BookForm/BookForm";
 
 const CamperPage = () => {
   const { id } = useParams();
@@ -19,6 +22,7 @@ const CamperPage = () => {
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState("features");
 
   useEffect(() => {
     dispatch(getCamper(id));
@@ -30,8 +34,12 @@ const CamperPage = () => {
     }
   }, [error, navigate]);
 
-  const getActiveClass = ({ isActive }) => {
-    return isActive ? `${css.link} ${css.active}` : css.link;
+  const handleSectionChange = (section) => {
+    setActiveSection(section);
+  };
+
+  const getActiveClass = (section) => {
+    return activeSection === section ? `${css.link} ${css.active}` : css.link;
   };
 
   return (
@@ -44,19 +52,27 @@ const CamperPage = () => {
             <div className="container">
               <ul className={css.add_info_list}>
                 <li>
-                  <NavLink className={getActiveClass} to="features">
+                  <button
+                    className={getActiveClass("features")}
+                    onClick={() => handleSectionChange("features")}
+                  >
                     Features
-                  </NavLink>
+                  </button>
                 </li>
                 <li>
-                  <NavLink className={getActiveClass} to="reviews">
+                  <button
+                    className={getActiveClass("reviews")}
+                    onClick={() => handleSectionChange("reviews")}
+                  >
                     Reviews
-                  </NavLink>
+                  </button>
                 </li>
               </ul>
               <hr className={css.line} />
               <div className={css.features}>
-                <Outlet />
+                {activeSection === "features" && <Features />}
+                {activeSection === "reviews" && <Reviews />}
+                <BookForm />
               </div>
             </div>
           </section>
